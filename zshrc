@@ -1,3 +1,6 @@
+export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:~/.local/bin
+
 # History file settings
 HISTFILE=~/.local/share/zsh/zsh_history
 setopt NO_HIST_VERIFY

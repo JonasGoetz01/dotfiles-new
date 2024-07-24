@@ -10,7 +10,7 @@
 
     - name: Make sure dotfiles are present
       git:
-        repo: https://github.com/elnappo/dotfiles.git
+        repo: https://github.com/JonasGoetz01/dotfiles-new.git
         dest: ~/.dotfiles
 
     - name: Allow sudo without password
