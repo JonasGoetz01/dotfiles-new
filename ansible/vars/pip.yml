@@ -1,8 +1,2 @@
 ---
-pip:
-  flake8:
-  pep8:
-  pylint:
-  requests:
-  tox:
-  virtualenvwrapper:
+pip: {}

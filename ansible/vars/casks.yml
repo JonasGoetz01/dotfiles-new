@@ -1,23 +1,5 @@
 ---
 casks:
-  firefox:
   google-chrome:
-  iina:
   iterm2:
-  karabiner-elements:
-  libreoffice:
-  macdown:
-  macpass:
-  moneymoney:
-  steam:
-  the-unarchiver:
-  transmission:
   visual-studio-code:
-  wireshark:
-  # Quick Look plugins
-  apparency:
-  qlcolorcode:
-  qlimagesize:
-  qlmarkdown:
-  qlstephen:
-  quicklook-json:

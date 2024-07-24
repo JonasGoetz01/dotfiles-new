@@ -14,21 +14,6 @@
   tags:
     - brew_cask
 
-- name: Include pacman package list
-  include_vars: vars/pacman.yml
-  tags:
-    - pacman
-
-- name: Include AUR package list
-  include_vars: vars/aur.yml
-  tags:
-    - aur
-
-- name: Include APT package list
-  include_vars: vars/apt.yml
-  tags:
-    - apt
-
 - name: Include gems list
   include_vars: vars/gems.yml
   tags:
@@ -84,56 +69,6 @@
       - pip
 
   when: ansible_os_family == "Darwin"
-
-- block:
-  - name: Update/Upgrade pacman
-    pacman:
-      update_cache: true
-      upgrade: true
-
-  - name: Manage pacman packages
-    pacman:
-      name: "{{ item.key }}"
-      state: "{{ item.value.state | default('latest') }}"
-    with_dict: "{{pacman}}"
-
-  - name: Manage python packages
-    pip:
-      name: "{{ item.key }}"
-      state: "{{ item.value.state | default('latest') }}"
-      executable: "{{ item.value.executable | default('pip3') }}"
-    with_dict: "{{pip}}"
-    tags:
-      - pip
-
-  become: true
-  when: ansible_os_family == "Archlinux"
-  tags: pacman
-
-- block:
-  - name: Update/Upgrade apt
-    apt:
-      update_cache: true
-      upgrade: dist
-
-  - name: Manage apt packages
-    apt:
-      name: "{{ item.key }}"
-      state: "{{ item.value.state | default('latest') }}"
-    with_dict: "{{apt}}"
-
-  - name: Manage python packages
-    pip:
-      name: "{{ item.key }}"
-      state: "{{ item.value.state | default('latest') }}"
-      executable: "{{ item.value.executable | default('pip3') }}"
-    with_dict: "{{pip}}"
-    tags:
-      - pip
-
-  become: true
-  when: ansible_os_family == "Debian"
-  tags: apt
 
 - name: Manage gems
   gem:

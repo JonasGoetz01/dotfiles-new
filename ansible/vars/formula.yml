@@ -1,51 +1,19 @@
 ---
 formula:
-  ack:
   ansible:
-  archey4:
-  axel:
   bash-completion:
   bash:
   bat:
-  binwalk:
-  coreutils:
-  cowsay:
-  ddrescue:
   exa:
-  fd:
-  findutils:
-  fish:
-  fzf:
   go:
-  grc:
   grep:
   htop:
-  httpie:
-  iftop:
-  iproute2mac:
-  jq:
   kubernetes-cli:
   kubernetes-helm:
-  libusb:
-  lnav:
-  moreutils:
-  mtr:
-  ncdu:
-  nmap:
-  openssl:
-  peco:
   pwgen:
   python:
-  rename:
-  shellcheck:
-  smartmontools:
-  ssh-copy-id:
   telnet:
-  tmux:
-  tree:
-  unp:
   vim:
   watch:
   wget:
-  youtube-dl:
   zsh:

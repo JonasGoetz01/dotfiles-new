@@ -32,56 +32,12 @@
       become: yes
       when: ansible_os_family == "Darwin"
 
-    - name: Install oh-my-zsh
-      git:
-        repo: https://github.com/robbyrussell/oh-my-zsh.git
-        dest: ~/.local/share/oh-my-zsh
-        update: yes
-
-    - name: Install oh-my-fish
-      git:
-        repo: https://github.com/oh-my-fish/oh-my-fish.git
-        dest: ~/.local/share/omf
-        update: yes
-
-    - name: Install tmux plugin manager
-      git:
-        repo: https://github.com/tmux-plugins/tpm.git
-        dest: ~/.local/share/tpm
-        update: yes
-
-    - name: Install dein.vim
-      git:
-        repo: https://github.com/Shougo/dein.vim.git
-        dest: ~/.local/share/dein/repos/github.com/Shougo/dein.vim
-        update: yes
-
     - name: Create folder
       file:
         path: "{{item}}"
         state: directory
       loop:
-        - "~/.cache/vim/"
-        - "~/.cache/vim/backup/"
-        - "~/.cache/vim/dein/"
-        - "~/.cache/vim/swap/"
-        - "~/.cache/vim/undo/"
-        - "~/.cache/wget/"
-        - "~/.config/fish/"
-        - "~/.config/gtk-3.0"
-        - "~/.config/i3/"
-        - "~/.config/i3blocks/"
-        - "~/.config/karabiner/"
-        - "~/.config/omf/"
-        - "~/.config/terminator/"
-        - "~/.config/termite/"
-        - "~/.config/vscode/"
-        - "~/.local/share/bash/"
-        - "~/.local/share/fish/"
-        - "~/.local/share/zsh/"
-        - "~/Coding/"
-        - "~/Coding/golang/"
-        - "~/Library/Application Support/Code/User/"
+        - "~/workspace/"
 
     - include_tasks: tasks/link_files.yml
       tags:
@@ -91,28 +47,16 @@
       tags:
         - packages
 
-    - name: Install oh-my-fish themes and plugins
-      command: fish -c "omf install"
-      args:
-        creates: ~/.local/share/omf/themes/default/
-      tags:
-        - packages
-
     - name: Install iTerm 2 shell integrations
       get_url:
         url: https://iterm2.com/shell_integration/{{item}}
         dest: ~/.local/share/{{item}}/iterm2_shell_integration.{{item}}
       loop:
-        - "fish"
         - "zsh"
         - "bash"
       when: ansible_os_family == "Darwin"
 
     # Needs to be after packages
-    - include_tasks: tasks/tmux_plugins.yml
-      tags:
-        - tmux_plugins
-
     - include_tasks: tasks/shells.yml
       tags:
         - shells
@@ -121,16 +65,6 @@
       when: ansible_os_family == "Darwin"
       tags:
         - macos_defaults
-
-    - include_tasks: tasks/arch.yml
-      when: ansible_os_family == "Archlinux"
-      tags:
-        - arch
-
-    - include_tasks: tasks/dnscrypt.yml
-      when: use_dnscrypt and ansible_os_family == "Darwin"
-      tags:
-        - dnscrypt
 
   handlers:
     - name: Kill Dock
