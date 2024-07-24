@@ -208,6 +208,8 @@
     - { domain: "com.apple.ImageCapture", key: "disableHotPlug", type: "bool", value: "true" }
     # Deactivate click wallpaper to show desktop
     - { domain: "com.apple.WindowManager", key: "EnableStandardClickToShowDesktop", type: "bool", value: "false" }
+    # Set correct date format in clock
+    - { domain: "com.apple.menuextra.clock", key: "DateFormat", type: "string", value: "\"EEE d MMM HH:mm:ss\"" }
   notify:
     - Kill WindowManager
 
