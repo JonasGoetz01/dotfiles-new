@@ -64,6 +64,10 @@
     - { key: "expose-animation-duration", type: "float", value: "0.1" }
     # Don’t show Dashboard as a Space
     - { key: "dashboard-in-overlay", type: "bool", value: "false" }
+    # Autohide
+    - { key: "autohide", type: "bool", value: "true" }
+    # Show recent apps in dock
+    - { key: "show-recents", type: "bool", value: "false" }
   notify:
     - Kill Dock
 
@@ -91,13 +95,13 @@
     # Enable Secure Keyboard Entry in Terminal.app
     - { key: "SecureKeyboardEntry", type: "bool", value: "true" }
 
-# - name: Set iTerm 2 settings
-#   osx_defaults: domain=com.googlecode.iterm2.plist key={{ item.key }} type={{ item.type }} value={{ item.value }}
-#   with_items:
-#     # Specify the preferences directory
-#     - { key: "PrefsCustomFolder", type: "string", value: "~/.dotfiles/config/iterm2" }
-#     # Tell iTerm2 to use the custom preferences in the directory
-#     - { key: "LoadPrefsFromCustomFolder", type: "bool", value: "true" }
+- name: Set iTerm 2 settings
+  osx_defaults: domain=com.googlecode.iterm2.plist key={{ item.key }} type={{ item.type }} value={{ item.value }}
+  with_items:
+    # Specify the preferences directory
+    - { key: "PrefsCustomFolder", type: "string", value: "~/.dotfiles/config/iterm2" }
+    # Tell iTerm2 to use the custom preferences in the directory
+    - { key: "LoadPrefsFromCustomFolder", type: "bool", value: "true" }
 
 - name: Set global settings
   osx_defaults: domain=NSGlobalDomain key={{ item.key }} type={{ item.type }} value={{ item.value }}
@@ -202,6 +206,10 @@
     - { domain: "com.apple.helpviewer", key: "DevMode", type: "bool", value: "true" }
     # Prevent Photos from opening automatically when devices are plugged in
     - { domain: "com.apple.ImageCapture", key: "disableHotPlug", type: "bool", value: "true" }
+    # Deactivate click wallpaper to show desktop
+    - { domain: "com.apple.WindowManager", key: "EnableStandardClickToShowDesktop", type: "bool", value: "false" }
+  notify:
+    - Kill WindowManager
 
 - name: Set some other settings (with sudo)
   osx_defaults: domain={{ item.domain }} key={{ item.key }} type={{ item.type }} value={{ item.value }}
