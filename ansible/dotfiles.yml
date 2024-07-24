@@ -84,3 +84,7 @@
     - name: Kill Terminal
       command: killall Terminal
       ignore_errors: yes
+
+    - name: Kill WindowManager
+      command: killall WindowManager
+      ignore_errors: yes
