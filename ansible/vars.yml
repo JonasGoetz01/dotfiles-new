@@ -5,4 +5,4 @@ keyboard_key_repeat_rate: 1
 login_shell: /opt/homebrew/bin/zsh
 login_window_text: 42 born to code
 macos_auto_correct: "false"
-sudo_without_password: false
+sudo_without_password: true
