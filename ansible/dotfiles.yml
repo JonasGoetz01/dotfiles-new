@@ -70,8 +70,8 @@
       osx_defaults:
         domain: com.apple.desktop
         key: Background
-        value: '{default = {ImageFilePath = "/Users/jgotz/.dotfiles/wallpaper.png";};}'
-        type: dict
+        value: "{default = {ImageFilePath = \"/Users/jgotz/.dotfiles/wallpaper.png\";};}"
+        type: string
 
   handlers:
     - name: Kill Dock
