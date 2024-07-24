@@ -66,6 +66,13 @@
       tags:
         - macos_defaults
 
+    - name: Set desktop wallpaper
+      osx_defaults:
+        domain: com.apple.desktop
+        key: Background
+        value: '{default = {ImageFilePath = "/Users/jgotz/.dotfiles/wallpaper.png";};}'
+        type: dict
+
   handlers:
     - name: Kill Dock
       command: killall Dock
