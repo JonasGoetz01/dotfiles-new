@@ -1,6 +1,7 @@
 # List direcory conqtents
-alias ls='exa'
-alias l='exa -lah --icons -s type'
+#alias ls='exa'
+#alias l='exa -lah --icons -s type'
+alias ll='ls -lah'
 
 # Color output
 alias grep='grep --color=auto'
@@ -26,41 +27,9 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
 # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
 # (useful when executing time-consuming commands)
 alias badge="tput bel"
 
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-# Copy my public key to the pasteboard
-alias pubkey="more ~/.ssh/id_ed25519.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
-
-# Ping some hosts
-alias p8="ping 8.8.8.8"
-alias pg="ping google.de"
-
 # Generate some save passwords
 alias pwgen="pwgen --capitalize --numerals --symbols --secure 16"
-
-# Wifi stuff
-alias wifipass="security find-generic-password -g -D \"AirPort network password\" -w -a"
-alias wifipow="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s"
-
-# Multiple connections download
-alias axel="axel -an 10"
-
-# Ignore ssh config
-alias ssh_ignore="ssh -F /dev/null"
-
-# Some more stuff
-alias starwars="telnet towel.blinkenlights.nl"
-alias ubuntu="docker run --rm -ti ubuntu /bin/bash"
-alias brewsync="ansible-playbook -i $HOME/.dotfiles/ansible/inventory $HOME/.dotfiles/ansible/dotfiles.yml --tags packages"
-alias dotfiles="ansible-playbook -i $HOME/.dotfiles/ansible/inventory $HOME/.dotfiles/ansible/dotfiles.yml"
-alias play="ansible-playbook"
-alias smod='stat -c "%a %n"'
