@@ -10,3 +10,4 @@
     - { src: "~/.dotfiles/config/vscode/settings.json", dest: "~/Library/Application Support/Code/User/settings.json" }
     - { src: "~/.dotfiles/vimrc", dest: "~/.vimrc"}
     - { src: "~/.dotfiles/zshrc", dest: "~/.zshrc"}
+    - { src: "~/.dotfiles/ansible/ansible.cfg", dest: "~/ansible.cfg"}
