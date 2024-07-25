@@ -43,6 +43,10 @@
       tags:
         - links
 
+    - include_tasks: tasks/git.yml
+      tags:
+        - git
+
     - include_tasks: tasks/packages.yml
       tags:
         - packages
