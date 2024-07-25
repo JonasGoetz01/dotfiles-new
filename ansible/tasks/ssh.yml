@@ -8,13 +8,13 @@
 - name: Deploy SSH private key
   copy:
     dest: ~/.ssh/id_rsa
-    content: "{{ github_private_key }}"
+    content: "{{ ssh_public_key }}"
     mode: '0600'
   no_log: true
 
 - name: Deploy SSH public key
   copy:
     dest: ~/.ssh/id_rsa.pub
-    content: "{{ github_public_key }}"
+    content: "{{ ssh_private_key }}"
     mode: '0644'
   no_log: true
