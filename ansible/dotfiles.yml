@@ -53,8 +53,8 @@
         - git
 
     - include_tasks: tasks/ssh.yml
-    tags:
-      - ssh
+      tags:
+        - ssh
 
     - include_tasks: tasks/packages.yml
       tags:
