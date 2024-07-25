@@ -1,5 +1,5 @@
 ansible/dotfiles.retry
-extra.fish
+vault-pass.yml
 
 .DS_Store
 .AppleDouble
