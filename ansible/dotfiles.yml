@@ -8,6 +8,11 @@
       tags:
         - always
 
+    - name: load custom vars
+      include_vars: ../vault.yml
+      tags:
+        - always
+
     - name: Make sure dotfiles are present
       git:
         repo: https://github.com/JonasGoetz01/dotfiles-new.git
