@@ -21,7 +21,6 @@
         value: "vim"
         scope: global
 
----
 - name: Configure GitHub login
   hosts: localhost
   connection: local
