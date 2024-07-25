@@ -1,0 +1,39 @@
+---
+- name: Configure Git settings
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Set global user name
+      git_config:
+        name: user.name
+        value: "jgotz"
+        scope: global
+
+    - name: Set global user email
+      git_config:
+        name: user.email
+        value: "jonas@42heilbronn.de"
+        scope: global
+
+    - name: Set global core editor
+      git_config:
+        name: core.editor
+        value: "vim"
+        scope: global
+
+---
+- name: Configure GitHub login
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Set GitHub username
+      git_config:
+        name: credential.github.com.username
+        value: "JonasGoetz01"
+        scope: global
+
+    - name: Set GitHub Personal Access Token
+      git_config:
+        name: credential.github.com.password
+        value: "{{ github_token }}"
+        scope: global
